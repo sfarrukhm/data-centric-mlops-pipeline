@@ -1,0 +1,8 @@
+ruff
+pytest
+pytest-cov
+
+pandas
+numpy
+
+requests
