@@ -15,3 +15,18 @@ month ?=04
 
 data-ingest:
 	$(PYTHON) $(INGEST_SCRIPT) -y $(year) -m $(month)
+
+
+# Commit message variable
+m ?= "update"
+
+# Command to add and commit
+git-commit:
+	git add .
+	git commit -m "$(m)"
+
+# Command to add, commit, and push
+git-push:
+	git add .
+	git commit -m "$(m)"
+	git push
