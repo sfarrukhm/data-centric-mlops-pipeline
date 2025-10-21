@@ -28,7 +28,7 @@ jobs:
           password: ${{secrets.DOCKERHUB_TOKEN}}
 
       - name: Build Docker image
-        run: docker build -t farrukh1/data-mlops:v0.1.0
+        run: docker build -t farrukh1/data-mlops:v0.1.0 .
 
       - name: Push Docker image
         run: docker push farrukh1/data-mlops:v0.1.0
