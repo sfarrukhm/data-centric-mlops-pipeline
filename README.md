@@ -5,8 +5,7 @@ I’m building this pipeline publicly to document how data flows from raw ingest
 
 ---
 
-> 🚧 **Project Status:** Actively under development  
-> 🧑‍🔬 Learning & Building in Public  
+> 🚧 **Project Status:** Actively under development    
 
 ---
 
