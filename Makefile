@@ -15,7 +15,8 @@ ingest-clean: ingest-data clean-data
 
 dvc:
 	uv run dvc add data/processed/green_tripdata_$(year)-$(month)-cleaned.parquet
+	git add data/processed/green_tripdata_$(year)-$(month)-cleaned.parquet.dvc
 	git commit -m "Add data: year $(year), month $(month)"
-	uv run dvc push
+# 	uv run dvc push
 
 all: ingest-data clean-data dvc
