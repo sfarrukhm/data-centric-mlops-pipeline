@@ -8,6 +8,7 @@ cleans it, and saves a processed version.
 import pandas as pd
 import numpy as np
 import os
+import argparse
 
 # ---------- Configuration ----------
 RAW_DATA_PATH = "data/raw/green_tripdata_2025-01.parquet"
@@ -79,11 +80,19 @@ def save_data(df: pd.DataFrame, path: str):
     print(f"💾 Saved cleaned data to {path}")
 
 
-def main():
+def main(year:int, month:int):
+    RAW_DATA_PATH = f"data/raw/green_tripdata_{year}-{month:02d}.parquet"
+    PROCESSED_DATA_PATH = f"data/processed/green_tripdata_{year}-{month:02d}-cleaned.parquet"
+
     df = load_data(RAW_DATA_PATH)
     df_cleaned = clean_data(df)
     save_data(df_cleaned, PROCESSED_DATA_PATH)
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description="Clean NYC Green Taxi data.")
+    parser.add_argument("-y","--year", type=int, default=2025, help="Year of the data to clean.")
+    parser.add_argument("-m","--month", type=int, default=1, help="Month of the data to clean.")
+    args = parser.parse_args()
+    main(args.year, args.month)
+    
